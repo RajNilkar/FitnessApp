@@ -23,6 +23,7 @@
         </activity>
 
         <activity android:name=".auth.SignUpActivity" />
+        <activity android:name="com.example.fitnessapp.HomeActivity" />
     </application>
 
 </manifest>
