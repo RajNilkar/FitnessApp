@@ -23,7 +23,12 @@
         </activity>
 
         <activity android:name=".auth.SignUpActivity" />
-        <activity android:name="com.example.fitnessapp.HomeActivity" />
+        <activity android:name="com.example.fitnessapp.homepage.HomeActivity" />
+        <activity android:name=".homepage.ExercisesActivity"/>
+        <activity android:name=".homepage.CaloriesActivity"/>
+        <activity android:name=".homepage.GraphsActivity"/>
+        <activity android:name=".homepage.MyProgressActivity"/>
+
     </application>
 
 </manifest>

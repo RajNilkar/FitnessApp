@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:ignore="ExtraText">
+    android:background="#F5F5F5"
 
     <ImageView
         android:id="@+id/imgLogo"
@@ -17,60 +19,193 @@
         app:layout_constraintVertical_bias="0.009"
         app:tint="@color/orange" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="411dp"
-        android:layout_height="660dp"
-        android:layout_below="@id/imgLogo"
-        android:layout_centerHorizontal="true"
-        android:background="@color/orange"
-        android:elevation="6dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:radius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/txtWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:text="Welcome, User!"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/txtWelcome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="100dp"
-            android:text="Welcome, User!"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:padding="16dp"
+        app:columnCount="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtWelcome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:rowCount="2">
 
-        <Button
-            android:id="@+id/btnlogWorkout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:backgroundTint="@color/white"
-            android:text="Log Workout"
-            android:textColor="@color/orange" />
+        <!-- Card 1: Exercises -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardExercises"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            app:cardBackgroundColor="@color/orange"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
 
-        <Button
-            android:id="@+id/btnProgress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:backgroundTint="@color/white"
-            android:text="View Progress"
-            android:textColor="@color/orange" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:padding="16dp">
 
-        <Button
-            android:id="@+id/btnCalendar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:text="Workout Calendar"
-            android:textColor="@color/orange" />
+                <TextView
+                    android:id="@+id/tvExercises"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Exercises"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
 
-    </LinearLayout>
+                <ImageView
+                    android:id="@+id/imgExercise"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/exercise_hp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card 2: Calories -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardCalories"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            app:cardBackgroundColor="@color/orange"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvCalories"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Calories"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
+
+                <ImageView
+                    android:id="@+id/imgCalories"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/calories_hp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card 3: Graphs -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardGraphs"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            app:cardBackgroundColor="@color/orange"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvProgressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="ProgressBar"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
+
+                <ImageView
+                    android:id="@+id/imgGraph"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/graph_hp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card 4: My Progress -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardProgress"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            app:cardBackgroundColor="@color/orange"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
+
+            <LinearLayout
+                android:id="@+id/LinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvMyProgess"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="My Progress"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
+
+                <ImageView
+                    android:id="@+id/imgProgress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/progress_hp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.gridlayout.widget.GridLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

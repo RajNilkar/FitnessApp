@@ -16,6 +16,7 @@ import com.example.fitnessapp.auth.SignUpActivity
 import com.example.fitnessapp.db.AppDatabase
 import com.example.fitnessapp.db.User
 import com.example.fitnessapp.db.UserDao
+import com.example.fitnessapp.homepage.HomeActivity
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -66,6 +67,8 @@ class MainActivity : AppCompatActivity() {
                 {
                     Toast.makeText(applicationContext, "Login Successful", Toast.LENGTH_SHORT).show()
                     //Need to implement the logic this goes to a new activity page
+                    val intent= Intent(this@MainActivity, HomeActivity::class.java)
+                    startActivity(intent)
                 }
                 else
                 {
