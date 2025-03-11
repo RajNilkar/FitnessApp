@@ -38,7 +38,7 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.gridlayout)
+    implementation("androidx.gridlayout:gridlayout:1.0.0")
     val room_version = "2.6.1"
 
     val lifecycle_version = "2.8.7"
