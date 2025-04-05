@@ -7,11 +7,13 @@ import android.widget.TextView
 import androidx.appcompat.view.menu.MenuView.ItemView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessapp.R
+import com.example.fitnessapp.db.Workout
 
-class ExercisesAdapter(private val exercisesList: List<Exercises>): RecyclerView.Adapter<ExercisesAdapter.ExercisesViewHolder>() {
+class ExercisesAdapter(private val exercisesList: List<Exercises>, private val onAddClick: (Workout) -> Unit): RecyclerView.Adapter<ExercisesAdapter.ExercisesViewHolder>() {
 
     class ExercisesViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val exercisesListTextView= itemView.findViewById<TextView>(R.id.tvExerciseItems)
+        val addButton = itemView.findViewById<View>(R.id.fabAddWorkout)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExercisesViewHolder {
@@ -22,6 +24,11 @@ class ExercisesAdapter(private val exercisesList: List<Exercises>): RecyclerView
     override fun onBindViewHolder(holder: ExercisesViewHolder, position: Int) {
         val exercise= exercisesList[position]
         holder.exercisesListTextView.text= exercise.name
+
+        holder.addButton.setOnClickListener {
+            val workout = Workout(name = exercise.name)
+            onAddClick(workout)
+        }
     }
 
     override fun getItemCount(): Int {

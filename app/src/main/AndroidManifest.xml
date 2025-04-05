@@ -20,6 +20,8 @@
         <activity
             android:name=".homepage.LogWorkoutActivity"
             android:exported="false" />
+
+        <activity android:name=".auth.SignUpActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -9,10 +9,12 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import com.example.fitnessapp.db.Workout
 
-@Database(entities = [User::class], version = 1, exportSchema = false)
+@Database(entities = [User::class, Workout::class], version = 2, exportSchema = false)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun userDao(): UserDao
+    abstract fun workoutDao(): WorkoutDao
 
     companion object {
         @Volatile
@@ -37,6 +39,7 @@ abstract class AppDatabase: RoomDatabase() {
                     AppDatabase::class.java,
                     "fitness_app_database"
                 )
+                    .fallbackToDestructiveMigration()
                     .addCallback(object : RoomDatabase.Callback() {
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             super.onCreate(db)

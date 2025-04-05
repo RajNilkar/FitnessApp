@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.appcompat.view.menu.MenuView.ItemView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessapp.R
+import com.example.fitnessapp.db.Workout
 
 class WorkoutAdapter(val workouts: MutableList<Workout>, val onDeleteClick: (Workout) -> Unit) : RecyclerView.Adapter<WorkoutAdapter.WorkoutViewHolder>() {
 

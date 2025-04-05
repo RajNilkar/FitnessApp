@@ -5,14 +5,17 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessapp.R
+import kotlinx.coroutines.launch
 
 class FindWorkoutActivity : AppCompatActivity() {
 
@@ -57,12 +60,16 @@ class FindWorkoutActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.listOfExercises.observe(this){exerciseList ->
-            for(exercise in exerciseList)
-            {
-                println("Exercise: ${exercise.name} (${exercise.muscle})")
+        viewModel.listOfExercises.observe(this) { exerciseList ->
+            val db = com.example.fitnessapp.db.AppDatabase.getDatabase(this)
+            val workoutDao = db.workoutDao()
+
+            exercisesAdapter = ExercisesAdapter(exerciseList) { workout ->
+                lifecycleScope.launch {
+                    workoutDao.insertWorkout(workout)
+                    Toast.makeText(this@FindWorkoutActivity, "${workout.name} added to log!", Toast.LENGTH_SHORT).show()
+                }
             }
-            exercisesAdapter = ExercisesAdapter(exerciseList)
             recyclerView.adapter= exercisesAdapter
         }
 
