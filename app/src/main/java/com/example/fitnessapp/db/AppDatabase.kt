@@ -11,10 +11,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import com.example.fitnessapp.db.Workout
 
-@Database(entities = [User::class, Workout::class], version = 2, exportSchema = false)
+@Database(entities = [User::class, Workout::class, CaloriesBurned::class], version = 3, exportSchema = false)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract fun workoutDao(): WorkoutDao
+    abstract fun caloriesDoa(): CaloriesDao
 
     companion object {
         @Volatile
