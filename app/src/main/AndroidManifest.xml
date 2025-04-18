@@ -33,9 +33,12 @@
         </activity>
         <activity android:name=".homepage.HomeActivity" />
         <activity android:name=".homepage.ExercisesActivity" />
-        <activity android:name=".homepage.CaloriesActivity" />
+        <activity android:name=".homepage.CaloriesTrackerActivity" />
         <activity android:name=".homepage.GraphsActivity" />
         <activity android:name=".homepage.MyProgressActivity" />
+        <activity android:name=".homepage.RecipeSearchActivity" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

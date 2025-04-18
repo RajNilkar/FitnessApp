@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvCaloriesHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calories Tracker"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/orange"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="16dp" />
+
+        <TextView
+            android:id="@+id/txtCaloriesToday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calories Today: 0 kcal"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtCaloriesMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calories This Month: 0 kcal"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/txtProteinToday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Protein: 0g" />
+
+        <TextView
+            android:id="@+id/txtCarbsToday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Carbs: 0g" />
+
+        <TextView
+            android:id="@+id/txtFatToday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fat: 0g" />
+
+        <TextView
+            android:id="@+id/txtSodiumToday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sodium: 0mg"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Progress Toward Daily Goal"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBarCalories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:max="2000"
+            android:progress="0"
+            android:progressTint="@color/orange"
+            android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+            android:id="@+id/goalSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <EditText
+                android:id="@+id/etCalorieGoal"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:hint="@string/set_daily_goal"
+                android:inputType="number"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="10dp" />
+
+            <Button
+                android:id="@+id/btnSaveGoal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnLogMeal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log Meal"
+            android:backgroundTint="@color/orange"/>
+        </LinearLayout>
+</ScrollView>
