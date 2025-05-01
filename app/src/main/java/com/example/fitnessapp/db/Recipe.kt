@@ -8,5 +8,6 @@ data class Recipe(
     val calories: Double,
     val dietLabels: List<String>,
     val healthLabels: List<String>,
-    val cuisineType: List<String>
+    val cuisineType: List<String>,
+    val totalNutrients: Map<String, Nutrient>
 )

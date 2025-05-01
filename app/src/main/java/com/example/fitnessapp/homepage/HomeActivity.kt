@@ -28,7 +28,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         caloriesCard.setOnClickListener {
-            val intent= Intent(this, CaloriesTrackerActivity::class.java)
+            val intent= Intent(this, CaloriesTrackerFixedActivity::class.java)
             startActivity(intent)
         }
 
