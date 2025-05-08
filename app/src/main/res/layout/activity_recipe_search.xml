@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Search Field -->
     <EditText
         android:id="@+id/etSearch"
         android:textSize="20dp"
@@ -15,15 +14,15 @@
         android:hint="Search for a food..."
         android:inputType="text" />
 
-    <!-- Search Button -->
     <Button
         android:id="@+id/btnSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Search"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/orange"
+        android:textColor="@color/white"/>
 
-    <!-- Recipe Results List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRecipes"
         android:layout_width="match_parent"

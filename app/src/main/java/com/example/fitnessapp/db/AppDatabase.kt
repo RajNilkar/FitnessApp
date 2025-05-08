@@ -10,7 +10,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [User::class, Workout::class, CaloriesConsumed::class], version = 4, exportSchema = false)
+@Database(entities = [User::class, Workout::class, CaloriesConsumed::class], version = 5, exportSchema = false)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract fun workoutDao(): WorkoutDao

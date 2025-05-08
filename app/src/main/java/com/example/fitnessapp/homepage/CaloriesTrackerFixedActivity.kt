@@ -54,7 +54,13 @@ class CaloriesTrackerFixedActivity : AppCompatActivity() {
         dailyGoal = prefs.getInt("daily_goal", 2000)
         etCalorieGoal.setText(dailyGoal.toString())
 
-        loggedMealsAdapter = LoggedMealsAdapter(emptyList())
+        loggedMealsAdapter = LoggedMealsAdapter(emptyList()) { meal -> lifecycleScope.launch {
+                val dao = AppDatabase.getDatabase(this@CaloriesTrackerFixedActivity).caloriesDoa()
+                dao.deleteCalories(meal)
+                updateDailySummary()
+            }
+        }
+
         rvLoggedMeals.adapter = loggedMealsAdapter
         rvLoggedMeals.layoutManager = LinearLayoutManager(this)
 

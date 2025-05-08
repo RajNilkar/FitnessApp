@@ -44,7 +44,9 @@ class RecipeSearchActivity : AppCompatActivity() {
                 carbs = recipe.totalNutrients["CHOCDF"]?.quantity ?: 0.0,
                 fat = recipe.totalNutrients["FAT"]?.quantity ?: 0.0,
                 sodium = recipe.totalNutrients["NA"]?.quantity ?: 0.0,
-                date = today
+                date = today,
+                foodName = recipe.label,
+                imageUrl = recipe.image
             )
             lifecycleScope.launch {
                 caloriesDao.insertCalories(caloriesConsumed)
