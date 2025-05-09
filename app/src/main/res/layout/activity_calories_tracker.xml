@@ -103,7 +103,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Save"
-                android:layout_marginStart="8dp" />
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/orange"/>
         </LinearLayout>
 
         <Button
@@ -112,5 +113,13 @@
             android:layout_height="wrap_content"
             android:text="Log Meal"
             android:backgroundTint="@color/orange"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvLoggedMeals"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
         </LinearLayout>
 </ScrollView>

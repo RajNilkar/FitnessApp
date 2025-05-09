@@ -10,7 +10,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessapp.R
+import com.example.fitnessapp.db.AppDatabase
+import com.example.fitnessapp.db.CaloriesConsumed
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class RecipeSearchActivity : AppCompatActivity() {
 
@@ -28,9 +33,27 @@ class RecipeSearchActivity : AppCompatActivity() {
         rvRecipes = findViewById(R.id.rvRecipes)
 
         recipeAdapter = RecipeAdapter(mutableListOf()) { recipeHit ->
-            //For now it just toasts it to confirm it's wired
-            Toast.makeText(this, "Logged ${recipeHit.recipe.label}", Toast.LENGTH_SHORT).show()
+            val recipe = recipeHit.recipe
+            val caloriesDao = AppDatabase.getDatabase(this).caloriesDoa()
+
+            val today = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+
+            val caloriesConsumed = CaloriesConsumed(
+                total_calories = recipe.calories,
+                protein = recipe.totalNutrients["PROCNT"]?.quantity ?: 0.0,
+                carbs = recipe.totalNutrients["CHOCDF"]?.quantity ?: 0.0,
+                fat = recipe.totalNutrients["FAT"]?.quantity ?: 0.0,
+                sodium = recipe.totalNutrients["NA"]?.quantity ?: 0.0,
+                date = today,
+                foodName = recipe.label,
+                imageUrl = recipe.image
+            )
+            lifecycleScope.launch {
+                caloriesDao.insertCalories(caloriesConsumed)
+                Toast.makeText(this@RecipeSearchActivity, "${recipe.label} logged!", Toast.LENGTH_SHORT).show()
+            }
         }
+
         rvRecipes.adapter = recipeAdapter
         rvRecipes.layoutManager = LinearLayoutManager(this)
 
