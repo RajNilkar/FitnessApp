@@ -9,7 +9,7 @@ import androidx.room.Update
 @Dao
 interface UserDao {
     @Insert
-    suspend fun insertUser(user: User) //Add new users
+    suspend fun insertUser(user: User)
 
     @Update
     suspend fun updateUser(user: User)

@@ -93,7 +93,6 @@ class CaloriesTrackerFixedActivity : AppCompatActivity() {
             val today = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
             val currentMonth = today.substring(0, 7)
             val allCalories = caloriesDao.getAllCalories()
-
             val todayCalories = allCalories.filter { it.date == today }
             val caloriesToday = todayCalories.sumOf { it.total_calories }
             val caloriesMonth = allCalories.filter { it.date.startsWith(currentMonth) }.sumOf { it.total_calories }

@@ -59,7 +59,7 @@ class LogWorkoutActivity : AppCompatActivity() {
                     workouts.add(newWorkout)
                     workoutAdapter.notifyDataSetChanged()
                 }
-                // Clear input fields
+
                 workoutNameEditText.text.clear()
                 setsEditText.text.clear()
                 repsEditText.text.clear()

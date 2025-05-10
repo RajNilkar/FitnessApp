@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RetrofitInstance {
     companion object{
         private const val BASE_URL= "https://api.api-ninjas.com/v1/"
-        private const val API_KEY= "Tte7Hu0ulvG8UJ5CglfW9A==mXljHZlxuMMOe3Tp"
+        private const val API_KEY= "ordKpkT3dgeZNKv1COOqO27Axxu5bnPdm9f8tdyo"
 
         val intercept= HttpLoggingInterceptor().apply {
             level= HttpLoggingInterceptor.Level.BODY

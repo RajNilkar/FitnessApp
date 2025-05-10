@@ -8,8 +8,6 @@
     android:background="#F5F5F5">
 
 
-    <!-- Grid Layout for Exercise Options -->
-
     <TextView
         android:id="@+id/txtExerciseTitle"
         android:layout_width="wrap_content"
@@ -39,7 +37,6 @@
         app:layout_constraintVertical_bias="0.455"
         app:rowCount="2">
 
-        <!-- Log Workout -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardLogWorkout"
             android:layout_width="0dp"
@@ -79,7 +76,7 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Find Workouts -->
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cardFindWorkout"
             android:layout_width="0dp"

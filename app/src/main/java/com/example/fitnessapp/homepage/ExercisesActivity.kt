@@ -12,17 +12,16 @@ class ExercisesActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exercises)
 
-        // Get references to the Cards
+
         val cardLogWorkout = findViewById<CardView>(R.id.cardLogWorkout)
         val cardFindWorkout = findViewById<CardView>(R.id.cardFindWorkout)
 
-        // Navigate to LogWorkoutActivity
         cardLogWorkout.setOnClickListener {
             val intent = Intent(this, LogWorkoutActivity::class.java)
             startActivity(intent)
         }
 
-        // Navigate to FindWorkoutActivity
+
         cardFindWorkout.setOnClickListener {
             val intent = Intent(this, FindWorkoutActivity::class.java)
             startActivity(intent)
