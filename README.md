@@ -7,6 +7,7 @@ Workout Logging: Log exercises and track different muscle group activities.
 Calorie Tracking: Search for meals, log calorie and macronutrient intake, and monitor daily/weekly consumption.
 Progress Tracking: Visualize weight changes over time with a dynamic graph and track personal progress.
 The app is designed with a simple, user-friendly interface and uses modern Android development tools and libraries.
+
 Features
 
 1. User Authentication
@@ -25,7 +26,8 @@ Features
    Users can log weight entries over time.
    A dynamic line chart displays weight trends using MPAndroidChart.
    The progress graph is organized inside a clean CardView for better visual structure.
-   Technologies Used
+   
+Technologies Used
 
 Kotlin for Android Development
 Room Database for local data storage
@@ -35,10 +37,12 @@ MPAndroidChart for chart and graph display
 Glide for image loading
 Firebase Authentication (optionally integrated, depending on features)
 ConstraintLayout, CardView, RecyclerView for UI components
+
 API Integrations
 
 Exercises API from API Ninjas (used for exercise searching)
 Recipe Search API from Edamam (used for calorie and meal tracking)
+
 How to Build and Run
 
 Clone the repository:
@@ -49,6 +53,7 @@ Update any necessary API keys inside:
 RetrofitInstance.kt (for Exercises API)
 RecipeSearchActivity.kt (for Recipe API)
 Sync Gradle and run the app on an emulator or device.
+
 Notes
 
 The free tier of the Exercises API has limitations. An upgrade may be required if exceeding daily API call limits.
